@@ -16,6 +16,10 @@ Before starting, ensure you have the following:
 
 ## Steps to Install
 
+### 0) MTD Backup (Optional, but Recommended)
+
+See, ER605-Backup-Guide.md
+
 ### 1) Enable SSH Access
 
 1. **Log into the ER605 Web Interface**: Open a browser and navigate to `http://192.168.0.1`.
@@ -23,7 +27,7 @@ Before starting, ensure you have the following:
     - Go to **System Tools > Diagnostics > Remote Assistance**.
     - Enable **Remote Assistance**.
 
-3. **Generate SSH Password**:
+3. **Generate SSH Root Password**:
     - Generate your SSH password by clicking the provided [link](https://github.com/safesploitOrg/openwrt-install-er605v2/er605_root_password/index.html) for password generation.
 
 
