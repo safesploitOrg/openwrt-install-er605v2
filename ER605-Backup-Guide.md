@@ -110,12 +110,12 @@ If you need to restore your router to its original state, you can use the full M
 - **Restoration Caution**: Restoring the full MTD backup will erase any changes or configurations made since the backup. Make sure to have a backup of any newer settings before proceeding.
 - **Recovery from Bricked Router**: If your router becomes unresponsive or bricked, restoring a full MTD backup can help bring it back to a working state.
 
+### Debricking:
+
+https://openwrt.org/toh/tp-link/er605_v2#debricking
+
 ---
 
 ## Conclusion
 
 Creating a full MTD backup is an essential step before making significant changes to your router, such as flashing OpenWRT or upgrading firmware. This ensures that you can always revert back to the original firmware and settings if anything goes wrong. Keep your backups in a secure location and use them whenever you need to restore your router’s configuration.
-
----
-
-This dedicated guide provides users with the ability to back up and restore their TP-Link ER605 v2 router’s complete firmware and settings using MTD tools. It’s an essential part of any router maintenance process and helps protect against potential issues during firmware flashing or system upgrades.
