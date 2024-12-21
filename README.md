@@ -16,10 +16,6 @@ Before starting, ensure you have the following:
 
 ## Steps to Install
 
-### 0) MTD Backup (Optional, but Recommended)
-
-See, ER605-Backup-Guide.md
-
 ### 1) Enable SSH Access
 
 1. **Log into the ER605 Web Interface**: Open a browser and navigate to `http://192.168.0.1`.
@@ -53,6 +49,8 @@ See, ER605-Backup-Guide.md
 
 1. **Backup MTD Partitions** (Recommended):
    - Backup your MTD partitions. For more details, follow this guide: [OpenWRT Backup Guide](https://openwrt.org/docs/guide-user/installation/generic.backup?do=#create_full_mtd_backup).
+
+   - Use `backup_mtd.sh` and copy the backups to an external flash drive or TFTP.
 
 2. **Download the Necessary Files**:
     - SSH into the router and execute the following commands to download the required files:
