@@ -4,139 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ER605 v2 Root Password Generator</title>
-    <style>
-      /* General Reset and Body Styling */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f7fc;
-        color: #333;
-        line-height: 1.6;
-        margin: 0;
-        padding: 2em;
-      }
-
-      header {
-        text-align: center;
-        margin-bottom: 2em;
-      }
-
-      h1 {
-        font-size: 2em;
-        color: #4a90e2;
-        font-weight: bold;
-      }
-
-      i {
-        font-style: italic;
-        color: #777;
-      }
-
-      h2 {
-        font-size: 1.5em;
-        color: #333;
-        margin-bottom: 1em;
-        font-weight: normal;
-      }
-
-      /* Flexbox Layout for Form and Results */
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .left-section, .right-section {
-        flex: 1;
-        min-width: 300px;
-        margin-right: 20px;
-      }
-
-      .right-section {
-        margin-right: 0;
-      }
-
-      .password-section {
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 1.5em;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .password-section h4 {
-        font-size: 1.1em;
-        margin-bottom: 0.8em;
-        color: #333;
-      }
-
-      label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 0.5em;
-        color: #555;
-      }
-
-      input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 1em;
-        background-color: #f9f9f9;
-      }
-
-      input[type="text"]:focus {
-        outline: none;
-        border-color: #4a90e2;
-        background-color: #fff;
-      }
-
-      .password-output {
-        font-weight: bold;
-        font-size: 1.1em;
-        color: #4a90e2;
-        margin-top: 0.5em;
-        background-color: #f0f8ff;
-        padding: 10px;
-        border-radius: 5px;
-      }
-
-      .small-text {
-        font-size: 0.9em;
-        color: #777;
-        margin-top: 0.5em;
-      }
-
-      footer {
-        text-align: center;
-        font-size: 0.9em;
-        margin-top: 2em;
-        color: #aaa;
-      }
-
-      footer a {
-        color: #4a90e2;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js" integrity="sha512-8pbzenDolL1l5OPSsoURCx9TEdMFTaeFipASVrMYKhuYtly+k3tcsQYliOEKTmuB1t7yuzAiVo+yd7SJz+ijFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>
       <h1>ER605 v2 Root Password Generator</h1>
-      <p><i>Your passwords are generated securely in your browser, ensuring privacy and security.</i></p>
     </header>
 
     <section>
@@ -145,32 +17,32 @@
       <div class="container">
         <!-- Left Section for Steps -->
         <div class="left-section">
-          <div class="password-section">
+          <div class="form-section">
             <h4>Step 1: Enter the MAC address from your ER605 device</h4>
             <p><label for="inputMacAddress">MAC Address (AA:BB:CC:DD:EE:FF or AA-BB-CC-DD-EE-FF):</label> 
-            <input type="text" id="inputMacAddress" placeholder="Enter MAC Address" oninput="getPw()"></p>
+            <input type="text" id="inputMacAddress" placeholder="Enter MAC Address" oninput="generatePasswords()"></p>
             <small class="small-text">Find the MAC address on the label at the bottom of your ER605 device.</small>
           </div>
 
-          <div class="password-section">
+          <div class="form-section">
             <h4>Step 2: Enter the username used to log in to the web interface</h4>
             <p><label for="inputUsername">Username:</label>
-            <input type="text" id="inputUsername" placeholder="Enter Username" oninput="getPw()"></p>
+            <input type="text" id="inputUsername" placeholder="Enter Username" oninput="generatePasswords()"></p>
             <small class="small-text">This is the username used to access the web configuration page of the ER605 device.</small>
           </div>
         </div>
 
         <!-- Right Section for Password Outputs -->
         <div class="right-section">
-          <div class="password-section">
+          <div class="form-section">
             <h4>Your Generated Root Password:</h4>
-            <p class="password-output"><span id="result"></span></p>
+            <p class="generated-password"><span id="rootPassword"></span></p>
           </div>
 
-          <div class="password-section">
+          <div class="form-section">
             <h4>CLI Debug Mode Password:</h4>
-            <p><strong>For v2.1.2 and below:</strong> <span id="resultCli212"></span></p>
-            <p><strong>For v2.2.2 and above:</strong> <span id="resultCli222"></span></p>
+            <p><strong>For v2.1.2 and below:</strong> <span id="cliDebugPassword212"></span></p>
+            <p><strong>For v2.2.2 and above:</strong> <span id="cliDebugPassword222"></span></p>
             <small class="small-text">These passwords are used for troubleshooting via the command line interface.</small>
           </div>
         </div>
@@ -181,32 +53,7 @@
       <p>&copy; <span id="currentYear"></span> ER605 Password Generator | <a href="#">Privacy Policy</a></p>
     </footer>
 
-    <script>
-      /**
-       * Generate the passwords based on MAC address and username.
-       */
-      function getPw() {
-        const mac = document.getElementById("inputMacAddress").value.trim().replaceAll("-", ":").toUpperCase();
-        const username = document.getElementById("inputUsername").value.trim();
-
-        // Generate Root password
-        document.getElementById("result").textContent = md5(mac + username).substr(0, 16);
-
-        // Generate CLI debug mode passwords for different versions
-        document.getElementById("resultCli212").textContent = md5(mac + "admin").substr(0, 16);
-        document.getElementById("resultCli222").textContent = md5(mac + "admin" + mac + "admin").substr(0, 16);
-      }
-
-      /**
-       * Set the current year in the footer dynamically.
-       */
-      function setYear() {
-        const currentYear = new Date().getFullYear();
-        document.getElementById("currentYear").textContent = currentYear;
-      }
-
-      // Set the year when the page loads
-      window.onload = setYear;
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js" integrity="sha512-8pbzenDolL1l5OPSsoURCx9TEdMFTaeFipASVrMYKhuYtly+k3tcsQYliOEKTmuB1t7yuzAiVo+yd7SJz+ijFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="generatePasswords.js"></script>
   </body>
 </html>

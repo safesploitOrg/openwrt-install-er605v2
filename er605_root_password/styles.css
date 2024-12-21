@@ -1,0 +1,125 @@
+/* General Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 2em;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+  h1 {
+    font-size: 2em;
+    color: #4a90e2;
+    font-weight: bold;
+  }
+  
+  i {
+    font-style: italic;
+    color: #777;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 1em;
+    font-weight: normal;
+  }
+  
+  /* Flexbox Layout for Form and Results */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .left-section, .right-section {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+  }
+  
+  .right-section {
+    margin-right: 0;
+  }
+  
+  .form-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-section h4 {
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+    color: #333;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+    color: #555;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background-color: #fff;
+  }
+  
+  .generated-password {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #4a90e2;
+    margin-top: 0.5em;
+    background-color: #f0f8ff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .small-text {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 0.5em;
+  }
+  
+  footer {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 2em;
+    color: #aaa;
+  }
+  
+  footer a {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
