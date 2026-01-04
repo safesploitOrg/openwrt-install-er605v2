@@ -24,7 +24,7 @@ Before starting, ensure you have the following:
     - Enable **Remote Assistance**.
 
 3. **Generate SSH Root Password**:
-    - Generate your SSH password by clicking the provided [link](https://github.com/safesploitOrg/openwrt-install-er605v2/er605_root_password/index.html) for password generation.
+    - Generate your SSH password by clicking the provided [link](https://safesploitorg.github.io/openwrt-install-er605v2/) for password generation.
 
 
 4. **SSH into ER605**:
